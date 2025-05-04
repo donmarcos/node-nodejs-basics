@@ -1,5 +1,5 @@
 
-//imports 
+//imports  and clean up of code 
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { logMsg, getPathData } from '../utils.js';
