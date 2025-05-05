@@ -15,26 +15,28 @@ const errorMap = {
 const rename = async () => {
     // Write your code here 
     logMsg({ msg: 'Starting work rename.js' });
-    const oldPath = path.join(__dirname, dirName, oldFilename);
-    const newPath = path.join(__dirname, dirName, newFilename);
+    const oldPath = path.join(__dirname, dirName, oldFileName);
+    const newPath = path.join(__dirname, dirName, newFileName);
 
     if (!(await isFileExists(oldPath))) {
-        logMsg(
-            `$(errorMap.EEXIST}. The File ${newFileName} does not exist`,
-            'error'
-        )
+        logMsg({
+            msg: `${errorMap.EEXIST}. The File ${newFileName} does not exist`,
+            type: 'error',
+        });
+        return;
     }
 
     if ((await isFileExists(newPath))) {
-        logMsg(
-            `$(errorMap.EEXIST}. The File ${newFileName} already exist`,
-            'error'
-        )
+        logMsg({
+            msg: `${errorMap.EEXIST}. The File ${newFileName} already exist`,
+            type: 'error',
+        });
+        return;
     }
 
     try {
         await fs.rename(oldPath, newPath);
-        logMsg(`Success: file ${oldFileName} renamed to ${newFileName}`);
+        logMsg({ msg: `Success: file ${oldFileName} renamed to ${newFileName}` });
     } catch (error) {
         const errorMessage = errorMap[error.code] || error.errorMessage;
         logMsg({
