@@ -20,7 +20,7 @@ const copy = async () => {
     logMsg({ msg: 'Starting work copy.js' });
 
     const sourcePath = path.join(__dirname, sourceDirname);
-    const targetPath = path.join(__dirname, targetPath);
+    const targetPath = path.join(__dirname, targetDirname);
 
     try {
         await fs.cp(sourcePath, targetPath, {
