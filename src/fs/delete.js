@@ -18,7 +18,7 @@ const remove = async () => {
     const filePath = path.join(__dirname, dirName, fileName);
     try {
         await fs.unlink(filePath);
-        logMsg({ msg: `Success : File $(fileName) was deleted` })
+        logMsg({ msg: `Success : File ${fileName} was deleted` })
     } catch (error) {
         const errorMessage = errorMap[error.code] || error.errorMessage;
         logMsg({
