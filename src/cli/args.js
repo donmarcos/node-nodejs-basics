@@ -12,6 +12,10 @@ const parseArgs = () => {
         logMsg({ msg: 'No arguments found', type: 'important' });
     }
 
+    // we do this +2 since when using npm there are already two initial values 
+    // being passed on to Node and  per the requirements we are not to be concerned
+    // about those 
+    // use console.log(process.argv) to see a full list of arguments being passed 
     for (let i = 0; i < args.length; i += 2) {
         const propName = args[i].slice(2);
         const value = args[i + 1];
